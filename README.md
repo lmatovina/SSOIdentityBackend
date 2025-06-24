@@ -1,0 +1,1 @@
+This is a backend API built with ASP.NET Core using Entity Framework Core for database interactions and ASP.NET Core Identity for handling user registration, login, and role-based access control. The system includes JWT token generation and supports secure authentication and authorization mechanisms.
