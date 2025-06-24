@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "m10gr2Jq0kBWVF0IYSIs3A0rFtTcKPDjEx8SgeIUg2c=",
+  "Source": "SSO.IdentityServer",
+  "BasePath": "_content/SSO.IdentityServer",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}
