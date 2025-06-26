@@ -53,6 +53,7 @@ builder.Services.AddAuthentication()
     .AddCookie();
 
 builder.Services.AddScoped<IAuthService, AuthService>();
+builder.Services.AddScoped<IUserService, UserService>();
 
 // Dodaj mapiranje kontrolera (važno!)
 builder.Services.AddControllers();

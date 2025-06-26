@@ -172,3 +172,4 @@ C:\Users\Leonardo\SSO.IdentityServer\SSO.IdentityServer\obj\Debug\net9.0\refint\
 C:\Users\Leonardo\SSO.IdentityServer\SSO.IdentityServer\obj\Debug\net9.0\SSO.IdentityServer.pdb
 C:\Users\Leonardo\SSO.IdentityServer\SSO.IdentityServer\obj\Debug\net9.0\SSO.IdentityServer.genruntimeconfig.cache
 C:\Users\Leonardo\SSO.IdentityServer\SSO.IdentityServer\obj\Debug\net9.0\ref\SSO.IdentityServer.dll
+C:\Users\Leonardo\SSO.IdentityServer\SSO.IdentityServer\obj\Debug\net9.0\SSO.IdentityServer.sourcelink.json

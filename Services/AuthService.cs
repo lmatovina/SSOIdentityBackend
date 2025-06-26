@@ -9,6 +9,9 @@ using System.IdentityModel.Tokens.Jwt;
 using SSO.IdentityServer.Models;
 using Microsoft.AspNetCore.Identity;
 
+/// <summary>
+/// Servis za autentifikaciju korisnika.
+/// </summary>
 public class AuthService : IAuthService
 {
     private readonly UserManager<ApplicationUser> _userManager;
