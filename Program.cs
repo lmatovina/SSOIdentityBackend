@@ -5,6 +5,7 @@ using SSO.IdentityServer.Models;
 using SSO.IdentityServer.Config;
 using Duende.IdentityServer;
 using Duende.IdentityServer.AspNetIdentity;
+using System.Text.Json;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -51,6 +52,12 @@ builder.Services.AddIdentityServer(options =>
 
 builder.Services.AddAuthentication()
     .AddCookie();
+
+builder.Services.AddControllers()
+    .AddJsonOptions(options =>
+    {
+        options.JsonSerializerOptions.PropertyNamingPolicy = JsonNamingPolicy.CamelCase;
+    });
 
 builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<IUserService, UserService>();

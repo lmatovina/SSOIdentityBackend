@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SSO.IdentityServer")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2562b940f73acf6235a410bf5c2481411a09a2bf")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ba3f3e86a7c0a2f357f9ebf14f3fc12c6d14cf84")]
 [assembly: System.Reflection.AssemblyProductAttribute("SSO.IdentityServer")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SSO.IdentityServer")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

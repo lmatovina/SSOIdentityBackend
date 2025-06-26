@@ -6,4 +6,6 @@ using System.Collections.Generic;
 public interface IUserService
 {
     Task<List<UserDto>> GetAllUsersWithRolesAsync();
+    Task UpdateUserRoleAsync(UpdateUserRoleDto dto);
+
 }

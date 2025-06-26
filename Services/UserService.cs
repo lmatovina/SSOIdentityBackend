@@ -32,7 +32,7 @@ public class UserService : IUserService
 
     public async Task<List<UserDto>> GetAllUsersWithRolesAsync()
     {
-        var users = await  _userManager.Users.ToListAsync();
+        var users = await _userManager.Users.ToListAsync();
         var list = new List<UserDto>();
 
         foreach (var user in users)
@@ -48,4 +48,28 @@ public class UserService : IUserService
 
         return list;
     }
+
+    public async Task UpdateUserRoleAsync(UpdateUserRoleDto dto)
+    {
+        var user = await _userManager.FindByIdAsync(dto.userId);
+        if (user == null)
+        {
+            throw new Exception("User not found");
+        }
+
+        var currentRoles = await _userManager.GetRolesAsync(user);
+
+        var removeResult = await _userManager.RemoveFromRolesAsync(user, currentRoles);
+        if (!removeResult.Succeeded)
+        {
+            throw new Exception("Failed to remove current roles");
+        }
+
+        var addResult = await _userManager.AddToRoleAsync(user, dto.newRole);
+        if (!addResult.Succeeded)
+        {
+            throw new Exception("Failed to add new role");
+        }
+    }
+
 }
