@@ -11,6 +11,7 @@ using Microsoft.AspNetCore.Identity;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 
+
 /// <summary>
 /// Servis za upravljanje korisnicima.
 /// </summary>
