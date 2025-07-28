@@ -12,6 +12,7 @@ using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 using SSO.IdentityServer.Data;
 using System.IO;
+using System.Diagnostics.Eventing.Reader;
 
 
 public class DocumentService : IDocumentService
@@ -35,14 +36,14 @@ public class DocumentService : IDocumentService
 
     public async Task UploadDocumentAsync(UploadDocumentDto dto)
     {
-        using var ms = new MemoryStream();          // <-- Ovdje deklariraš ms
-        await dto.Data.CopyToAsync(ms);              // Kopiraš file stream u memorijski stream
+        using var ms = new MemoryStream();         
+        await dto.Data.CopyToAsync(ms);              
 
         var document = new Document
         {
             FileName = dto.Data.FileName,
             ContentType = dto.Data.ContentType,
-            Data = ms.ToArray(),                      // Pretvara memorijski stream u byte array
+            Data = ms.ToArray(),                      
             UploadedByUserId = dto.UserId,
             UploadedAt = DateTime.UtcNow
         };
@@ -50,4 +51,26 @@ public class DocumentService : IDocumentService
         await _context.Documents.AddAsync(document);
         await _context.SaveChangesAsync();
     }
+
+    public async Task<List<DocumentDto>> GetDocumentsByUserId(string userId)
+    {
+        var documents = await _context.Documents
+            .Where(d => d.UploadedByUserId == userId)
+            .Include(d => d.UploadedByUser)
+            .ToListAsync();
+
+
+        var documentDtos = documents.Select(d => new DocumentDto
+        {
+            Id = d.Id,
+            FileName = d.FileName,
+            ContentType = d.ContentType,
+            UploadedByUserId = d.UploadedByUserId,
+            UploadedAt = d.UploadedAt
+        }).ToList();
+
+        return documentDtos;
+    }
+
+
 }

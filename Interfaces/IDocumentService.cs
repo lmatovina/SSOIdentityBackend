@@ -6,4 +6,5 @@ using System.Collections.Generic;
 public interface IDocumentService
 {
     Task UploadDocumentAsync(UploadDocumentDto dto);
+    Task<List<DocumentDto>> GetDocumentsByUserId(string userId);
 }

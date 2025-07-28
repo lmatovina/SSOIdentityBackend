@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 using System;
 using SSO.IdentityServer.Models;
+using System.Diagnostics.Eventing.Reader;
 
 namespace SSO.IdentityServer.Controllers
 {
@@ -38,6 +39,13 @@ namespace SSO.IdentityServer.Controllers
                 // dodatno logiraj grešku
                 return StatusCode(500, $"Internal server error: {ex.Message}");
             }
+        }
+
+        [HttpGet("documents/{userId}")]
+        public async Task<IActionResult> GetDocumentsByUserId(string userId)
+        {
+            var documents = await _documentService.GetDocumentsByUserId(userId);
+            return Ok(documents);
         }
     }
 }

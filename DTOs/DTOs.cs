@@ -40,3 +40,15 @@ using System.Text.Json.Serialization;
     public IFormFile Data { get; set; } // prima file iz forme
     public string UserId { get; set; } = string.Empty;
     }
+
+    public class DocumentDto
+    {
+        public int Id { get; set; }
+        public string FileName { get; set; }
+        public string ContentType { get; set; }
+        public string UploadedByUserId { get; set; }
+        public DateTime UploadedAt { get; set; }
+    }
+
+
+
